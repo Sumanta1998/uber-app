@@ -1,24 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-
+import {Provider} from 'react-redux';
+import {store} from './store';
+import HommeScreen from './screens/HommeScreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import MapboxComponent from './components/Map';
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World</Text>
-    </View>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        {/* <HommeScreen /> */}
+        <MapboxComponent />
+      </SafeAreaProvider>
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'red',
-  },
-});
 
 export default App;
